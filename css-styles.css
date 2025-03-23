@@ -1,0 +1,111 @@
+/* Custom styles for Activity Tracker */
+
+/* Main layout improvements */
+.stApp {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Header styles */
+h1 {
+    color: #4CAF50;
+    margin-bottom: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #4CAF50;
+}
+
+h2 {
+    color: #2E7D32;
+    margin-top: 1.5rem;
+}
+
+h3 {
+    color: #2E7D32;
+    margin-top: 1rem;
+}
+
+/* Metric cards */
+div[data-testid="stMetricValue"] {
+    font-size: 24px !important;
+    font-weight: bold !important;
+}
+
+div[data-testid="stMetricLabel"] {
+    font-size: 14px !important;
+}
+
+div[data-testid="stMetricDelta"] {
+    font-size: 14px !important;
+}
+
+/* Button styling */
+button[kind="primary"] {
+    background-color: #4CAF50 !important;
+}
+
+button[kind="secondary"] {
+    border-color: #4CAF50 !important;
+    color: #4CAF50 !important;
+}
+
+/* Form elements */
+.stTextInput, .stNumberInput, .stDateInput {
+    margin-bottom: 1rem;
+}
+
+/* Success/Warning messages */
+div[data-testid="stSuccessMessage"] {
+    background-color: rgba(76, 175, 80, 0.1) !important;
+    color: #2E7D32 !important;
+    border-left-color: #4CAF50 !important;
+    padding: 1rem !important;
+}
+
+div[data-testid="stWarningMessage"] {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    color: #FF8F00 !important;
+    border-left-color: #FFC107 !important;
+    padding: 1rem !important;
+}
+
+/* Calendar highlighting */
+div[data-testid="stDataFrame"] td[style*="background-color: #e6f3ff"] {
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Sidebar */
+.css-1d391kg {
+    background-color: #f9f9f9;
+}
+
+/* Progress bars */
+div[data-testid="stProgress"] > div {
+    background-color: #4CAF50 !important;
+}
+
+/* Charts */
+div[class*="stChart"] path {
+    stroke: #4CAF50;
+}
+
+/* Expanders */
+button[data-testid="stExpander"] {
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Checkboxes */
+label[data-testid="stCheckbox"] span {
+    color: #212121;
+}
+
+/* Tabs */
+button[data-baseweb="tab"] {
+    color: #4CAF50 !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #2E7D32 !important;
+    border-bottom-color: #2E7D32 !important;
+}
