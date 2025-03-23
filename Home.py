@@ -20,7 +20,7 @@ def setup_app():
     st.set_page_config(
         page_title=f"{APP_ICON} {APP_TITLE}",
         page_icon=APP_ICON,
-        layout=APP_LAYOUT,
+        layout="wide",
         initial_sidebar_state="expanded"
     )
     
