@@ -327,7 +327,7 @@ def render_statistics(daily_data):
 
             line_chart = alt.Chart(chart_data).mark_line(point=True).encode(
                 x='日期:T',
-                y=alt.Y('体重:Q', scale=alt.Scale(domain=[50, 70])),
+                y=alt.Y('体重:Q', scale=alt.Scale(domain=[55, 65])),
                 tooltip=['日期', '体重']
             ).properties(
                 width='container',
