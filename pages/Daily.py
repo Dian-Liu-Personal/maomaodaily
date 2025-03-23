@@ -5,6 +5,7 @@ Daily tracking page for the Activity Tracker app.
 import streamlit as st
 import pandas as pd
 import datetime
+import altair as alt
 from utils.ui_components import (
     render_header, render_calendar, render_date_selector, 
     render_activity_summary, render_metric_card, render_mood_slider
@@ -313,10 +314,27 @@ def render_statistics(daily_data):
         stats_df.sort_index(inplace=True)
         
         # 显示体重趋势
+        # if not stats_df["Weight"].isna().all():
+        #     st.subheader("体重趋势")
+        #     chart_data = pd.DataFrame({'体重': stats_df["Weight"]})
+        #     st.line_chart(chart_data, use_container_width=True)
         if not stats_df["Weight"].isna().all():
             st.subheader("体重趋势")
-            chart_data = pd.DataFrame({'体重': stats_df["Weight"]})
-            st.line_chart(chart_data, use_container_width=True)
+            chart_data = pd.DataFrame({
+                '日期': stats_df.index,
+                '体重': stats_df["Weight"]
+            }).reset_index(drop=True)
+
+            line_chart = alt.Chart(chart_data).mark_line(point=True).encode(
+                x='日期:T',
+                y=alt.Y('体重:Q', scale=alt.Scale(domain=[50, 70])),
+                tooltip=['日期', '体重']
+            ).properties(
+                width='container',
+                height=300
+            )
+
+            st.altair_chart(line_chart, use_container_width=True)
         
         # 显示卡路里趋势
         if not stats_df["Calories"].isna().all():
@@ -336,6 +354,21 @@ def render_statistics(daily_data):
         display_df.index = stats_df["DateStr"]
         display_df = display_df.drop(columns=["DateStr"])
         st.dataframe(display_df)
+
+        st.subheader("今日备注历史")
+        notes_dates = {}
+        for date_obj in all_dates:
+            date_str = date_obj.isoformat()
+            if date_str in daily_data and "notes" in daily_data[date_str] and daily_data[date_str]["notes"].strip():
+                formatted_date = format_date(date_obj, DATE_FORMAT)
+                notes_dates[formatted_date] = date_str
+
+        if notes_dates:
+            selected_date_for_notes = st.selectbox("选择日期查看备注:", options=list(notes_dates.keys()))
+            selected_date_str = notes_dates[selected_date_for_notes]
+            st.text_area("备注内容:", value=daily_data[selected_date_str]["notes"], height=150)
+        else:
+            st.info("暂无备注记录")
 
 def main():
     """Main function for the Daily tracking page."""
