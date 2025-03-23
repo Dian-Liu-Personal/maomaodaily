@@ -163,10 +163,10 @@ def render_weekly_form(selected_week_start, weekly_data):
                 value=weekly_data[week_str].get(activity["id"], False)
             )
         
-        pattern_tracking = st.text_area(
-            "可追溯规律", 
-            value=weekly_data[week_str].get("pattern_tracking", "")
-        )
+        # pattern_tracking = st.text_area(
+        #     "可追溯规律", 
+        #     value=weekly_data[week_str].get("pattern_tracking", "")
+        # )
         
         notes = st.text_area(
             "本周备注", 
@@ -180,7 +180,7 @@ def render_weekly_form(selected_week_start, weekly_data):
             data_to_save = {
                 "waist": waist,
                 "arm": arm,
-                "pattern_tracking": pattern_tracking,
+                # "pattern_tracking": pattern_tracking,
                 "notes": notes
             }
             

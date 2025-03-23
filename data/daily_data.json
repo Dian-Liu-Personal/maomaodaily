@@ -1,0 +1,24 @@
+{
+  "2025-03-17": {
+    "weight": 0.0,
+    "calories": 0,
+    "mood": 3,
+    "notes": "17\u65e5",
+    "jung": false,
+    "english": false,
+    "metaphysics": true,
+    "thesis": false,
+    "thesis_wordcount": 0,
+    "going_out": false,
+    "bowel_movement": true,
+    "dog_walking": false,
+    "exercise": false,
+    "exercise_time": 0,
+    "drawing": false,
+    "writing": false,
+    "watching_shows": false,
+    "casual_reading": false,
+    "friends": false,
+    "doi": false
+  }
+}
